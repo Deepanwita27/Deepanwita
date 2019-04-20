@@ -15,6 +15,7 @@ model1 = glm(NewLeague1 ~ AtBat + League ,data = trd,family = "binomial") #creat
 
 TRP = predict(model1,tsd,type = "response") # create prediction model type = "response" for probability value
 
+#trd
 TRP1 = ifelse(TRP > 0.5,"A","N") # distribute value A/N
 
 W = data.frame(tsd$AtBat,tsd$League,tsd$NewLeague,TRP1) # compare actual vs predictive value
